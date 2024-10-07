@@ -167,3 +167,47 @@ Este hook lo que hace es recordar algo.
 ### Nota 
 
 La convención es nombrar estas dos variables como `const [algo, setAlgo]`. Podemos nombrarlo como queramos, pero mantener las convenciones hacen que las cosas sean más fáciles de entender en todos los proyectos.
+
+## onChange 
+
+- onChange está escuchando los cambios en el campo de texto.
+- La función anónima `(e) => console.log(e.target.value)` captura el evento e.
+- `e.target.value` devuelve el valor actual del campo.
+- e: Es el evento que contiene toda la información sobre la interacción del usuario con el elemento. En el caso de un input, e.target.value te da el valor actual del campo de entrada.
+
+- Dentro de un formulario, podemos tener un `<button></button>`que llame alguna función, pero para que se ejecute correctamente debemos usar dentro de la funcion los siguiente
+    `e.preventDefault()` ya que al dar click en el boto, hace que se recargue la página y no alcanza a ejecutarse la función. O simplemnte debe dejar por fuera de la etiqueta 
+    `<form></form>` el boton.
+
+## Hook React useEffect
+
+Es para sincronizar con entidades externas, un endpoint, un componente, un servicio
+
+Se debe declarar en el nivel superior del componente. `import { useEffect } from 'react';`
+
+El useEffectHook te permite realizar efectos secundarios en tus componentes.
+
+Algunos ejemplos de efectos secundarios son: obtener datos, actualizar directamente el DOM y temporizadores.
+
+useEffectacepta dos argumentos. El segundo argumento es opcional.
+
+`useEffect(<function>, <dependency>)`
+
+```
+        useEffect(() => {
+        // Código del efecto
+        }, [dependencies]);
+
+```
+
+peticiones, ejecuciones en cierto momento
+
+
+## A tener en cuenta con el hook useEfect
+
+Este hook no sabe cuál era el valor anterior de una variable o constante, para eso se puede utilizar el hook **useRef** que permite recordar el valor anterior de la variable o constante. Este useRef es ideal ya que no renderiza el componente, si usaramos useState si se renderizaria.
+
+
+# onChange={(e) => ...}
+
+El atributo `onChange={(e) => ...}` en React se usa para manejar los cambios en el valor de un elemento, como un campo de texto, un checkbox, o cualquier otro input. Cuando el valor de ese input cambia, se dispara la función asociada a onChange, y el parámetro e representa el evento que contiene información sobre el cambio. 
